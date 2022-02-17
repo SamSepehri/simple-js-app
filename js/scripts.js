@@ -1,5 +1,3 @@
-alert('Hello world');
-
 //IIFE
 let pokemonRepository = (function() {
       //variables
