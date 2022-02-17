@@ -1,22 +1,35 @@
 alert('Hello world');
 
-let pokemonList = [
-  {
-    name: "Bulbasaur",
-    type: ["grass","poison"],
-    height: 0.7
-  },
-  {
-    name: "Squirtle",
-    type: ["water"],
-    height: 1.7
-  },
-  {
-    name: "Charmander",
-    type: ["fire","flying"],
-    height: 0.6
-  }
+let pokemonRepository = (function() {
+      let pokemonList = [
+        {
+          name: "Bulbasaur",
+          type: ["grass","poison"],
+          height: 0.7
+        },
+        {
+          name: "Squirtle",
+          type: ["water"],
+          height: 1.7
+        },
+        {
+          name: "Charmander",
+          type: ["fire","flying"],
+          height: 0.6
+        }
 ];
+
+    return {
+          add:function(pokemon){
+            pokemonList.push(pokemon);
+          },
+          getAll:function() {
+            return pokemonList;
+          }
+        };
+})();
+
+
 pokemonList.forEach(function(pokemon){
 document.write(pokemon.name + " with type: (" + pokemon.type + ") " + "and" + " (height :" + pokemon.height + "),   ")
 });
