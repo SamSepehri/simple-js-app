@@ -32,7 +32,7 @@ let pokemonRepository = (function() {
 
 
 pokemonRepository.getAll().forEach(function(pokemon){
-document.write(pokemon.name + " with type: (" + pokemon.type + ") " + "and" + " (height :" + pokemon.height + "),   ")
+document.write(pokemon.name + " with type: (" + pokemon.type + ") " + "and" + " (height :" + pokemon.height + "), <br>")
 });
 
 
