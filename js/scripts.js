@@ -1,41 +1,65 @@
-//IIFE
-let pokemonRepository = (function() {
-      //variables
-      let pokemonList = [
-        {
-          name: "Bulbasaur",
-          type: ["grass","poison"],
-          height: 0.7
-        },
-        {
-          name: "Squirtle",
-          type: ["water"],
-          height: 1.7
-        },
-        {
-          name: "Charmander",
-          type: ["fire","flying"],
-          height: 0.6
-        }
-];
+let pokemonRepository = (function () {
+  let repository = [
+    {
+      name: "Bulbasaur",
+      height: 0.7,
+      types: ["grass", "poison"],
+    },
+    {
+      name: "Charizard",
+      height: 1.7,
+      types: ["fire", "flying"],
+    },
+    {
+      name: "Squirtle",
+      height: 1,
+      types: ["water"],
+    },
+  ];
 
-    return {
-          getAll:function() {
-            return pokemonList;
-          },
-          add:function(pokemon){
-            pokemonList.push(pokemon);
-          }
+  function add(pokemon) {
+    if (
+      typeof pokemon === "object" &&
+      "name" in pokemon &&
+      "height" in pokemon &&
+      "types" in pokemon
+    ) {
+      repository.push(pokemon);
+    } else {
+      console.log("pokemon is not correct");
+    }
+  }
+  function getAll() {
+    return repository;
+  }
+  function showDetails(pokemon){
+    console.log(pokemon)
+  }
+  function addListItem(pokemon){
+    let pokemonList = document.querySelector(".pokemon-list");
+    let listpokemon = document.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = pokemon.name;
+    button.classList.add("button-class");
+    listpokemon.appendChild(button);
+    pokemonList.appendChild(listpokemon);
+    button.addEventListener("click", () => {
+      showDetails(pokemon);
+    });
+  }
+  return {
+    add: add,
+    getAll: getAll,
+    addListItem: addListItem,
+    showDetails: showDetails
 
-        };
+  };
 })();
 
+pokemonRepository.add({ name: "Pikachu", height: 0.3, types: ["electric"] });
 
-pokemonRepository.getAll().forEach(function(pokemon){
-document.write(pokemon.name + " with type: (" + pokemon.type + ") " + "and" + " (height :" + pokemon.height + ") <br>")
+console.log(pokemonRepository.getAll());
+
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
 });
-
-
-console.log(pokemonRepository.getAll());
-pokemonRepository.add({ name: 'Pikachu' });
-console.log(pokemonRepository.getAll());
