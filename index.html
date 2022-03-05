@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Simple JS App</title>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pokemon Dictionary</title>
     <link rel="shortcut icon" href="./img/pokemon_logo_PNG12.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-  </head>
-
-  <header class="page-header"></header>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" type="text/css" href="dist/styles.css" />
+    <title>Pokedox App</title>
+</head>
   <body>
+    <header class="page-header">
       <nav class="navbar">
         <a class="navbar-brand" href="index.html">
           <img src="./img/pokemon_logo_PNG12.png" width="50" height="50" class="d-inline-block align-top" alt="" />
         </a>
+      <!-- Search Form within Navigation Bar -->
+       <form class="form-inline">
+   <input class="form-control rounded" id="myInput" type="search" placeholder="Search for Pokemon..." aria-label="Search"/>
+      </form>
       </nav>
-
+    </header>
+  <main>
       <div class="container">
         <div class="row">
           <div class="col">
@@ -66,6 +71,6 @@
         ></script>
     <script src="js/promise-polyfill.js"></script>
     <script src="js/fetch-polyfill.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="dist/code.min.js"></script>
   </body>
 </html>
